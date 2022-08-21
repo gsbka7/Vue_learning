@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        //1.使用settimeout
+        // setTimeout(() => {
+        //     console.log('Hello World');
+        // }, 1000)
+
+        //有非同步操作時，使用Promise進行封裝
+        //new -> 構造函式(1.保存了一些狀態訊息  2.執行傳入的函式)
+        //執行傳入的回調函式時，會再傳入兩個參數
+        //參數 -> 函式(resolve, reject)
+        //resolve、reject本身也是函式
+
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+            console.log('Hello World');
+            }, 1000)
+        })
+
+
+    </script>
+    
+</body>
+</html>

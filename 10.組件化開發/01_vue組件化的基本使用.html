@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- <h2>我是標題</h2>
+        <p>內容1</p>
+        <p>內容2</p> -->
+        <mycpn></mycpn>
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        //1.建立元件
+        const cpnC = Vue.extend({
+            template: `
+            <div>
+                <h2>我是標題</h2>
+                <p>內容1</p>
+                <p>內容2</p>
+            </div>
+            `
+        })
+
+        //2.註冊元件
+        Vue.component('mycpn', cpnC)
+
+        //3.使用元件
+        const app  = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello',
+
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

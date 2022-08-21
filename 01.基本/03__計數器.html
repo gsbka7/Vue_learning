@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <h2>目前計數：{{counter}}</h2>
+        <button @click="add">+</button> <!-- 語法糖 -->
+        <button v-on:click="sub">-</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const obj = {
+                counter: 0,
+            }
+        const app = new Vue({
+            el: '#app', //決定Vue要管理哪一個DOM
+            data: obj, //對應的對象  //data必須是函數
+            methods: { //定義函數
+                add: function() {
+                    console.log('add')
+                    this.$data.counter++
+
+                },
+                sub: function() {
+                    console.log('sub')
+                    this.counter--
+                },
+            },
+            created: function() {
+                console.log('created')
+
+            },
+            mounted: function() {
+                console.log('mounted')
+            }
+        })
+    </script>
+    
+</body>
+</html>

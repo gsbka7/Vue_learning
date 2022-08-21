@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- 1.直接拼接：語法繁瑣，一般不使用-->
+        <h2>{{firstName}} {{lastName}}</h2>
+        <!-- 2.通過定義methods：會多次調用-->
+        <h2>{{getFullName()}}</h2>
+        <!-- 3.computed：只會調用一次，效能高 -->
+        <h2>{{fullName}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app  = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'hsieh',
+                lastName: 'jason'
+
+            },
+            methods: {
+                getFullName: function() {
+                    consol
+                    return this.firstName + ' ' + this.lastName
+                }
+            },
+            computed: {
+                fullName: function() {
+                    return this.firstName + ' ' + this.lastName
+                }
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

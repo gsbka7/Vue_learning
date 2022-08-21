@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.slot的基本使用：<slot></slot> -->
+    <!-- 2.slot的預設值：<slot>button</slot>，有預設會使用預設值-->
+    <!-- 3.如果有多個值同時放入元件進行替換時，全部一起替換 -->
+    <!--  -->
+    
+    <div id="app">
+        <cpn><span slot="left">標題</span></cpn>
+        <cpn><button slot="center">標題</button></cpn>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <slot name="left"><span>左邊</span></slot>
+            <slot name="center"><span>中間</span></slot>
+            <slot name="right"><span>右邊</span></slot>
+
+            <cpn><span>標</span></cpn>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app  = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello',
+            },
+            components: {
+                cpn: {
+                    template: '#cpn'
+                }
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

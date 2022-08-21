@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //網路請求：Hello World ->自己處裡
+        //處理：Hello World111 ->自己處理
+        //處理：Hello World111222 ->自己處理
+
+        //1.
+        // new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve('Hello World');
+        //     }, 1000);
+        // }).then(res => {
+
+        //     //1.自己處理代碼
+        //     console.log(res, '第一層的代碼');
+
+        //     //2.對結果進行第一次處理
+        //     return new Promise((resolve) => {
+        //         resolve(res + '111')
+        //     })
+        // }).then(res => {
+
+        //     console.log(res, '第二層的代碼');
+
+        //     new Promise(resolve => {
+        //         resolve(res + '222')
+        //     }).then(res => {
+
+        //         console.log(res, '第三層的代碼');
+        //     })
+        // })
+
+        //1.
+        // new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve('Hello World');
+        //     }, 1000);
+        // }).then(res => {
+
+        //     //1.自己處理代碼
+        //     console.log(res, '第一層的代碼');
+
+        //     //2.對結果進行第一次處理
+        //     return new Promise((resolve, reject) => {
+        //         // resolve(res + '111');
+        //         reject('error');
+        //     })
+        // }).then(res => {
+
+        //     console.log(res, '第二層的代碼');
+
+        //     new Promise(resolve => {
+        //         resolve(res + '222')
+        //     }).then(res => {
+
+        //         console.log(res, '第三層的代碼');
+        //     })
+        // }).catch(err => {
+
+        //     console.log(err);
+        // })
+
+
+
+        //2.
+        // new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve('Hello World');
+        //     }, 1000);
+        // }).then(res => {
+
+        //     //1.自己處理代碼
+        //     console.log(res, '第一層的代碼');
+
+        //     //2.對結果進行第一次處理
+        //     return Promise.resolve(res + '111')
+        // }).then(res => {
+
+        //     console.log(res, '第二層的代碼');
+
+        //     return Promise.resolve(res + '222')
+        // }).then(res => {
+
+        //     console.log(res, '第三層的代碼');
+        // })
+
+        //2.
+        // new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve('Hello World');
+        //     }, 1000);
+        // }).then(res => {
+
+        //     //1.自己處理代碼
+        //     console.log(res, '第一層的代碼');
+
+        //     //2.對結果進行第一次處理
+        //     return Promise.reject('error message')
+        // }).then(res => {
+
+        //     console.log(res, '第二層的代碼');
+
+        //     return Promise.resolve(res + '222')
+        // }).then(res => {
+
+        //     console.log(res, '第三層的代碼');
+        // }).catch(err => {
+        //     console.log(err);
+        // })
+
+
+        //2.
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Hello World');
+            }, 1000);
+        }).then(res => {
+
+            //1.自己處理代碼
+            console.log(res, '第一層的代碼');
+
+            //2.對結果進行第一次處理
+            // return Promise.reject('error message')
+            throw 'error message';
+        }).then(res => {
+
+            console.log(res, '第二層的代碼');
+
+            return Promise.resolve(res + '222')
+        }).then(res => {
+
+            console.log(res, '第三層的代碼');
+        }).catch(err => {
+            console.log(err);
+        })
+
+        
+        //3.
+        // new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve('Hello World');
+        //     }, 1000);
+        // }).then(res => {
+
+        //     //1.自己處理代碼
+        //     console.log(res, '第一層的代碼');
+
+        //     //2.對結果進行第一次處理
+        //     return res + '111'
+
+        // }).then(res => {
+
+        //     console.log(res, '第二層的代碼');
+
+        //     return res + '222'
+
+        // }).then(res => {
+
+        //     console.log(res, '第三層的代碼');
+        // })
+
+
+    </script>
+</body>
+
+</html>

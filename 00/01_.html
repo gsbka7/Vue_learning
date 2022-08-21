@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按鈕1</button>
+    <button>按鈕2</button>
+    <button>按鈕3</button>
+    <button>按鈕4</button>
+    <button>按鈕5</button>
+
+    <script>
+        //1.變數作用域：變數在什麼範圍可用
+        // {
+        //     var name = 'way';
+        //     console.log(name);
+        // }
+        // console.log(name);
+
+        //2.沒有區域作用域引起的問題
+        var func;
+        if(true) {
+            var name = 'way';
+
+            func = function() {
+                console.log(name)
+            }
+
+            // func()
+        }
+        name = 'no'
+        func()
+        // console.log(name);
+
+        //3.for，閉包可以解決：函數是一個作用域
+        var btns = document.getElementsByTagName('button');
+        for(var i = 0 ; i < btns.length; i++) {
+            (function (i) {
+                btns[i].addEventListener('click', function() {
+                console.log('第' + (i + 1) + '個按鈕被點擊')
+                })
+            })(i)
+        }
+
+    </script>
+    
+</body>
+</html>
